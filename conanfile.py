@@ -3,8 +3,8 @@ from conans import ConanFile, tools
 
 class FcitxQt5Conan(ConanFile):
     name = "fcitx-qt5"
-    version = "1.2.3"
-    build_version = "2build3"
+    version = "1.1.1"
+    build_version = "1build3"
     settings = "os", "arch"
     description = "Fcitx support for Qt5"
     url = "https://github.com/altairwei/conan-fcitx-qt5.git"
@@ -33,7 +33,7 @@ class FcitxQt5Conan(ConanFile):
         self.run("tar -xf data.tar.xz")
 
     def package(self):
-        self.copy("*", src="usr", keep_path=True)
+        self.copy("lib/*", src="usr", keep_path=True)
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)

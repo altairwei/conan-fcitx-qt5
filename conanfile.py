@@ -33,8 +33,7 @@ class FcitxQt5Conan(ConanFile):
         self.run("tar -xf data.tar.xz")
 
     def package(self):
-        self.copy("libfcitxplatforminputcontextplugin.so", dst="lib", keep_path=False,
-            src="usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts")
+        self.copy("*", src="usr", keep_path=True)
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
